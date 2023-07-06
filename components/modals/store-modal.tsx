@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { redirect } from "next/navigation";
@@ -25,6 +25,7 @@ import { redirect } from "next/navigation";
 export const StoreModal = () => {
   const storeModal = useStoreModal();
   const [loading, setLoading] = useState(false);
+  const [isMounted, setMounted] = useState(false);
 
   // Form constraints
   const formScheme = z.object({
@@ -52,6 +53,13 @@ export const StoreModal = () => {
       setLoading(false);
     }
   };
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <Modal

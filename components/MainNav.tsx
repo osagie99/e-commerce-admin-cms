@@ -17,13 +17,18 @@ export const MainNav: FC<MainNavProps> = ({
   const params = useParams();
   const routes = [
     {
+      href: `/${params.storeId}`,
+      label: "Overview",
+      active: pathName === `/${params.storeId}`,
+    },
+    {
       href: `/${params.storeId}/settings`,
       label: "Settings",
-      active: pathName === `${params.storeId}`,
+      active: pathName === `/${params.storeId}/settings`,
     },
   ];
   return (
-    <nav className={cn("flex items-center space-x-4 lg:space-x-6", className)}>
+    <nav className={cn("flex items-center space-x-4 lg:space-x-6", className)} {...props}>
       {routes.map((route) => (
         <Link
           key={route.href}
