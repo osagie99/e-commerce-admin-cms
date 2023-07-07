@@ -1,5 +1,6 @@
 import prismadb from "@/lib/prismadb";
 import BillboardForm from "./components/BillboardForm";
+import { BillboardColumm } from "./components/columns";
 
 const BillBoardPage = async ({
   params,
