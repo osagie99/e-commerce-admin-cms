@@ -34,6 +34,12 @@ export const MainNav: FC<MainNavProps> = ({
       active: pathName.startsWith(`/${params.storeId}/categories`),
     },
     {
+      href: `/${params.storeId}/sizes`,
+      label: "Sizes",
+      // active: pathName === `/${params.storeId}/billboards`,
+      active: pathName.startsWith(`/${params.storeId}/sizes`),
+    },
+    {
       href: `/${params.storeId}/settings`,
       label: "Settings",
       active: pathName === `/${params.storeId}/settings`,
